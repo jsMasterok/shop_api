@@ -6,10 +6,9 @@ const WishSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    images: {
-      type: Array,
+    image: {
+      type: String,
       required: true,
-      default: [],
     },
     type: {
       type: String,
@@ -36,6 +35,10 @@ const WishSchema = new mongoose.Schema(
       required: true,
     },
     result: {
+      type: String,
+      required: true,
+    },
+    power: {
       type: String,
       required: true,
     },
