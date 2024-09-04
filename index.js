@@ -7,6 +7,10 @@ const app = express().use(express.json()).use(cors());
 app.use(
   "/",
   createProxyMiddleware({
+    //
+    proxyTimeout: 30000,
+    timeout: 30000,
+    // КОСИтыль ПОТОМ УДАЛИТЬ
     target: "https://crm.sitniks.com/open-api",
     changeOrigin: true,
     headers: {
@@ -15,10 +19,6 @@ app.use(
     },
   })
 );
-
-app.get("/", (req, res) => {
-  res.send("BestWishes API");
-});
 
 app.listen(process.env.PORT || 4444, (err) => {
   if (err) return console.log(err);
