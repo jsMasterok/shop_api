@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   res.send("BestWishes API");
 });
 
-app.listen(4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
   if (err) return console.log(err);
   console.log("Proxy server is running on http://localhost:4444");
 });
