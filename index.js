@@ -7,15 +7,16 @@ const app = express().use(express.json()).use(cors());
 app.use(
   "/",
   createProxyMiddleware({
-    //
     proxyTimeout: 30000,
     timeout: 30000,
-    // КОСИтыль ПОТОМ УДАЛИТЬ
     target: "https://crm.sitniks.com/open-api",
     changeOrigin: true,
     headers: {
       Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
       "Content-Type": "application/json",
+    },
+    onProxyReq: (proxyReq, req) => {
+      proxyReq.setHeader("Authorization", `Bearer ${process.env.BEARER_TOKEN}`);
     },
   })
 );
