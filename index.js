@@ -3,15 +3,13 @@ import { createProxyMiddleware } from "http-proxy-middleware";
 
 const app = express().use(express.json());
 
-const BEARER_TOKEN = "DGoEUHrr1gCqM9j6syfSJP4yhYTOjlL3PZFSi16USXq";
-
 app.use(
   "/api",
   createProxyMiddleware({
     target: "https://crm.sitniks.com/open-api/",
     changeOrigin: true,
     headers: {
-      Authorization: `Bearer ${BEARER_TOKEN}`,
+      Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
       "Content-Type": "application/json",
     },
   })
