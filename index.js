@@ -67,7 +67,7 @@ app.post("/orders", async (req, res) => {
   try {
     const requestData = req.body;
     const response = await axios.post(
-      "/https://crm.sitniks.com/open-api/orders",
+      "https://crm.sitniks.com/open-api/orders",
       requestData,
       {
         headers: {
