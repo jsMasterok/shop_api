@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 app.get("/sales-channels", async (req, res) => {
   try {
     const response = await axios.get(
-      "/https://crm.sitniks.com/open-api/sales-channels",
+      "https://crm.sitniks.com/open-api/sales-channels",
       {
         headers: {
           Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
