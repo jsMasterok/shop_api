@@ -9,7 +9,11 @@ app.use(
   createProxyMiddleware({
     proxyTimeout: 30000,
     timeout: 30000,
-    target: "https://crm.sitniks.com/open-api",
+
+    target: {
+      href: "https://crm.sitniks.com/open-api",
+      auth: "Bearer ${process.env.BEARER_TOKEN}`",
+    },
     changeOrigin: true,
     headers: {
       Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
